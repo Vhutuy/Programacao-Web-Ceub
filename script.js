@@ -53,8 +53,6 @@ let valoresConversao = {
     }
 }
 
-
-
 function converter() {
     let valor = parseFloat(document.getElementById("valor").value);
 
@@ -75,7 +73,6 @@ function converter() {
         alert("Digite algum valor!")
     }
     
-
     if (para == "real") {
         let espaco = document.getElementById("espaco").innerHTML =  "R$ " +  conversao 
     } 
@@ -143,8 +140,6 @@ document.addEventListener ('keypress', (event) => {
     let caixa = document.getElementById("mensagemUser")
     caixa.style.display = "none";
   }
-
-
 
   function salvar() {
     let caixa = document.getElementById("mensagemUser")
