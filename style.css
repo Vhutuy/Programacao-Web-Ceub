@@ -1,0 +1,309 @@
+body{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.tituloCaixa{ 
+    height: 120px;
+    width: 80vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
+    font-style: italic;
+    font-size: 60px;
+    color: rgb(169, 208, 142);
+    margin: 10px;
+}
+
+.caixa{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 700px;
+    width: 80vw;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    border-radius: 30px;
+}
+
+.divConversao {
+    width: 70vw;
+    height: 270px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.divSelecao {
+    height: 270px;
+    width: 22vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    border-radius: 25px;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+}
+
+#butaoInverter {
+    border: none;
+    height: 60px;
+    width: 80px;
+    border-radius: 12px;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#butaoInverter:hover {
+    height: 65px;
+    width: 85px;
+    box-shadow: rgba(29, 29, 29, 0.3) 0px 2px 8px 0px;
+}
+
+.selecaoMoeda {
+    width: 21vw;
+    height: 60px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline: none;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 17px;
+    border-bottom: 4px solid black;
+}
+
+.campoSelecao {
+    width: 16vw;
+    height: 60px;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 10px;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 17px;
+    transition: 0.4s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.campoSelecao:hover {
+    width: 17vw;
+    height: 63px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 13px;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+.butaoCaixa {
+
+    width: 70vw;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+
+ .butaoApagarCaixa {
+    width: 70vw;
+    height: 50px;
+    margin: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+ }
+
+ #butaoApagar {
+    border: none;
+    height: 60px;
+    width: 80px;
+    border-radius: 12px;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+
+ #butaoApagar:hover {
+    height: 65px;
+    width: 85px;
+    box-shadow: rgba(29, 29, 29, 0.3) 0px 2px 8px 0px;
+ }
+
+#inverterGif {
+    display: none;
+}
+
+#lixoGif {
+    display: none;
+}
+
+#espaco {
+    color: rgb(0, 0, 0);
+    font-size: 19px;
+}
+
+#espaco:hover {
+    font-size: 20px;
+    letter-spacing: 0px;
+}
+
+.mensagemUser {
+    border-radius: 42px;
+    width: 60vw;
+    height: 15vw;
+ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 18px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    position: absolute;
+    background-color: white;
+}
+
+.butaoPerg {
+    border: none;
+    outline: none;
+    height: 40px;
+    width: 50px;
+    margin: 4px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.butaoPerg:hover {
+    width: 52px;
+    height: 42px;
+    font-size: 17px;
+    color: white;
+}
+
+#butaoperguntaSim:hover {
+    background-color: greenyellow;
+}
+
+#butaoperguntaNao:hover {
+    background-color: red;
+}
+
+
+
+
+
+
+
+
+ /**************CODIGO DO BOTAO****************/
+
+
+ .wrapper {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .cta {
+      display: flex;
+      padding: 10px 45px;
+      text-decoration: none;
+      font-family: 'Poppins', sans-serif;
+      font-size: 40px;
+      color: white;
+      background: rgb(169, 208, 142);
+      transition: 1s;
+      box-shadow: 6px 6px 0 black;
+      transform: skewX(-15deg);
+  }
+  
+  .cta:focus {
+     outline: none; 
+  }
+  
+  .cta:hover {
+      transition: 0.5s;
+      box-shadow: 10px 10px 0 #f3e850;
+  }
+  
+  .cta span:nth-child(2) {
+      transition: 0.5s;
+      margin-right: 0px;
+  }
+  
+  .cta:hover  span:nth-child(2) {
+      transition: 0.5s;
+      margin-right: 45px;
+  }
+  
+    span {
+      transform: skewX(15deg) 
+    }
+  
+    span:nth-child(2) {
+      width: 20px;
+      margin-left: 30px;
+      position: relative;
+      top: 12%;
+    }
+    
+  /**************SVG****************/
+  
+  path.one {
+      transition: 0.4s;
+      transform: translateX(-60%);
+  }
+  
+  path.two {
+      transition: 0.5s;
+      transform: translateX(-30%);
+  }
+  
+  .cta:hover path.three {
+      animation: color_anim 1s infinite 0.2s;
+  }
+  
+  .cta:hover path.one {
+      transform: translateX(0%);
+      animation: color_anim 1s infinite 0.6s;
+  }
+  
+  .cta:hover path.two {
+      transform: translateX(0%);
+      animation: color_anim 1s infinite 0.4s;
+  }
+  
+  /* SVG animations */
+  
+  @keyframes color_anim {
+      0% {
+          fill: white;
+      }
+      50% {
+          fill: #f3e850;
+      }
+      100% {
+          fill: white;
+      }
+  }
