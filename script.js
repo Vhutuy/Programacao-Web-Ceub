@@ -39,21 +39,41 @@ let valoresConversao = {
     real: {
         dolar: 0.27,
         euro: 0.18,
-        real: 1
+        
     },
     dolar: {
         real: 5.03,
         euro: 1.09,
-        dolar: 1
+        
     },
     euro: {
         real: 5.47,
         dolar: 0.92,
-        euro: 1
+        
     }
 }
 
+function buscaAPI() {
+    let url = "https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL";
+    fetch(url).then(
+        function(data){
+            console.log(data)
+            if (data.status == 200) {
+                console.log("Retorno Ok")
+                
+            }
+        }
+    ).catch(
+        console.log("Errado")
+    )
+
+}
+
+
 function converter() {
+
+    buscaAPI()
+
     let valor = parseFloat(document.getElementById("valor").value);
 
     let de = document.getElementById("de").value
@@ -62,17 +82,18 @@ function converter() {
    
 
     let conversao = (valor * valoresConversao[de][para]).toFixed(2);
-
-    console.log(typeof(valor))
-    console.log(valor)
-    console.log(valor == "")
-    console.log(typeof(conversao))
+    
+    if (de == para) {
+        alert("Ta tirando amigao")
+    }
+    
+    
     if(isNaN(conversao)) {
         alert("Digite um Valor Valido!")
         return
     }
 
-    if(valor < 0) {
+    if(valor <= 0) {
         alert("Tão pobre que nao consegue comprar coisa gratis!")
         return
     }
@@ -102,6 +123,15 @@ function converter() {
     salvarResultadoNoHistorico(resultadoConvesao)
 
 }
+
+
+
+
+
+
+
+
+
 
 
 function salvarResultadoNoHistorico(conversao) {
