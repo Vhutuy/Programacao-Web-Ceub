@@ -64,14 +64,20 @@ function converter() {
     let conversao = (valor * valoresConversao[de][para]).toFixed(2);
 
     console.log(typeof(valor))
-
-    if(typeof(valor) != "number") {
+    console.log(valor)
+    console.log(valor == "")
+    console.log(typeof(conversao))
+    if(isNaN(conversao)) {
         alert("Digite um Valor Valido!")
         return
     }
-    if (valor = "") {
-        alert("Digite algum valor!")
+
+    if(valor < 0) {
+        alert("Tão pobre que nao consegue comprar coisa gratis!")
+        return
     }
+
+    
     
     if (para == "real") {
         let espaco = document.getElementById("espaco").innerHTML =  "R$ " +  conversao 
