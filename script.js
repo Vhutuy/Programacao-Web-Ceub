@@ -93,14 +93,26 @@ function converter() {
         resultado: conversao
     }
 
-    salvaresultado(resultadoConvesao)
+    salvarResultadoNoHistorico(resultadoConvesao)
 
 }
 
 
 function salvarResultadoNoHistorico(conversao) {
-    let conversaoEmJson = JSON.stringify(conversao);
-    localStorage.setItem("historico",conversaoEmJson)
+    let historico = recuperaHistoricodeConversao();
+    historico.push(conversao);
+    let conversaoEmJson = JSON.stringify(historico);
+    localStorage.setItem("historico", conversaoEmJson); 
+}
+
+function recuperaHistoricodeConversao() {
+    let historico = localStorage.getItem("historico");
+    if (!historico) { 
+        console.log("O Histórico está vazio!"); 
+        return [];
+    }
+    let historicoConvertido = JSON.parse(historico);
+    return historicoConvertido;
 }
 
 function salvar() {
@@ -110,10 +122,7 @@ function salvar() {
     localStorage.setItem("aceitou", "1")
 }
 
-function salvaresultado(conversao) {
-    let conversaoEmJson = JSON.stringify(conversao)
-    localStorage.setItem("Historico", conversaoEmJson)
-}
+
 
 document.addEventListener ('keypress', (event) => {
     const keyName = event.key;
