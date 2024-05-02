@@ -35,103 +35,82 @@ function apagar() {
     }, 1000);
 }
 
-let valoresConversao = {
-    real: {
-        dolar: 0.27,
-        euro: 0.18,
-        
-    },
-    dolar: {
-        real: 5.03,
-        euro: 1.09,
-        
-    },
-    euro: {
-        real: 5.47,
-        dolar: 0.92,
-        
-    }
-}
 
-function buscaAPI() {
-    let url = "https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL";
-    fetch(url).then(
-        function(data){
-            console.log(data)
+function buscaAPI(de="USD", para="BRL") {
+    console.log(de)
+    console.log(para)
+    let parametro = de + "-" + para
+    let url = "https://economia.awesomeapi.com.br/last/" + parametro;
+
+    console.log(url)
+
+    return fetch(url).then(function(data){
             if (data.status == 200) {
-                console.log("Retorno Ok")
-                
+             console.log("Retorno Ok!")
             }
+            return data.json();
         }
-    ).catch(
-        console.log("Errado")
-    )
-
+    ).then(function(response){
+  
+        return response[de+para];
+       
+    }).catch()
 }
 
 
 function converter() {
 
-    buscaAPI()
-
     let valor = parseFloat(document.getElementById("valor").value);
 
     let de = document.getElementById("de").value
     let para = document.getElementById("para").value
-
-   
-
-    let conversao = (valor * valoresConversao[de][para]).toFixed(2);
     
     if (de == para) {
         alert("Ta tirando amigao")
     }
     
-    
-    if(isNaN(conversao)) {
-        alert("Digite um Valor Valido!")
-        return
-    }
+
 
     if(valor <= 0) {
         alert("Tão pobre que nao consegue comprar coisa gratis!")
         return
     }
 
-    
-    
-    if (para == "real") {
-        let espaco = document.getElementById("espaco").innerHTML =  "R$ " +  conversao 
-    } 
-
-    if (para == "dolar") {
-        let espaco = document.getElementById("espaco").innerHTML =  "US$ "  +  conversao  
-    } 
-
-    if (para == "euro") {
-        let espaco = document.getElementById("espaco").innerHTML =  "€ " + conversao 
-    }
- 
-
-    let resultadoConvesao = {
-        valor: valor,
-        de: de,
-        para: para,
-        resultado: conversao
+    if(valor == "") {
+        alert("Não")
+        return
     }
 
-    salvarResultadoNoHistorico(resultadoConvesao)
+    buscaAPI(de, para).then(function(response){
+        let conversao = valor * response["ask"]
+        let simbolo = ""
+        if (para = "BRL") {
+            simbolo = "R$"
+        }
+        if (para = "EUR") {
+            simbolo = "€"
+        }
+        if (para = "BRL") {
+            simbolo = "US$"
+        }
 
+        let resultado = document.getElementById("espaco").innerHTML =simbolo + " " +  conversao.toFixed(2);  
+
+        
+        console.log(response["ask"]);
+        console.log(conversao)
+
+        let resultadoConvesao = {
+            valor: valor,
+            de: de,
+            para: para,
+            resultado: conversao
+        }
+
+        salvarResultadoNoHistorico(resultadoConvesao)
+
+    });
 }
-
-
-
-
-
-
-
-
-
 
 
 function salvarResultadoNoHistorico(conversao) {
